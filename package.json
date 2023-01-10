@@ -1,18 +1,30 @@
 {
   "name": "tricking-ts",
-  "version": "0.0.1",
-  "description": "TypeScript library for consuming the TrickingApi",
-  "main": "index.js",
-  "author": "Mikael Mantis",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrickingApi/tricking-ts.git"
+  },
+  "version": "0.1.0",
   "license": "MIT",
+  "description": "TypeScript library for consuming the TrickingApi",
+  "homepage": "https://trickingapi.dev",
+  "main": "./dist/tsc/index.js",
+  "types": "./dist/tsc/index.d.ts",
+  "author": "Mikael Mantis https://www.npmjs.com/~mantism",
+  "keywords": [
+    "tricking",
+    "typescript",
+    "wrapper",
+    "plugin"
+  ],
   "private": false,
   "scripts": {
-    "cli": "ts-node src/cli.ts",
     "test": "jest",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
     "build": "tsc -p tsconfig.json",
     "clean": "rm -rf dist build",
-    "ts-node": "ts-node"
+    "ts-node": "ts-node",
+    "pub": "yarn version patch --force && yarn publish"
   },
   "devDependencies": {
     "@types/jest": "^29.2.5",
