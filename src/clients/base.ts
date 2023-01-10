@@ -1,6 +1,6 @@
 import { BASE_URL } from '../constants';
-import { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { IAxiosCacheAdapterOptions, setup } from 'axios-cache-adapter';
+import Axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
+import { AxiosCacheInstance, CacheAxiosResponse, setupCache } from 'axios-cache-interceptor';
 import pino from 'pino';
 import {
   createLogger,
@@ -18,12 +18,6 @@ export interface IBaseClientOptions {
    */
   logOptions?: pino.LoggerOptions;
   /**
-   * ## Axios Cache Options
-   * Options for cache.
-   * @see https://github.com/RasCarlito/axios-cache-adapter
-   */
-  cacheOptions?: IAxiosCacheAdapterOptions;
-  /**
    * ## Base URL
    * Location of the TrickingApi. Leave empty to use the official TrickingApi instance.
    */
@@ -31,21 +25,18 @@ export interface IBaseClientOptions {
 }
 
 export class BaseClient {
-  public api: AxiosInstance;
+  public api: AxiosCacheInstance;
 
   public logger: pino.Logger;
 
   constructor(clientOptions?: IBaseClientOptions) {
-    this.api = setup({
+    const axiosInstance: AxiosInstance = Axios.create({
       baseURL: clientOptions?.baseURL ?? BASE_URL,
       headers: {
         'Content-Type': 'application/json',
-      },
-      cache: {
-        maxAge: clientOptions?.cacheOptions?.maxAge || 0,
-        ...clientOptions?.cacheOptions,
-      },
+      }
     });
+    this.api = setupCache(axiosInstance);
 
     this.logger = createLogger({
       enabled: !(
@@ -61,10 +52,8 @@ export class BaseClient {
     );
 
     this.api.interceptors.response.use(
-      (response: AxiosResponse) => handleResponse(response, this.logger),
+      (response: CacheAxiosResponse) => handleResponse(response, this.logger),
       (error: AxiosError<string>) => handleResponseError(error, this.logger)
     );
   }
-
-
 }

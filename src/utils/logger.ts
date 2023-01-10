@@ -1,4 +1,5 @@
-import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import { AxiosError, AxiosRequestConfig } from 'axios';
+import { CacheAxiosResponse } from 'axios-cache-interceptor';
 import pino from 'pino';
 
 /**
@@ -24,7 +25,7 @@ export const handleRequestError = (
   throw error;
 };
 
-export const handleResponse = (response: AxiosResponse, logger: pino.Logger): AxiosResponse => {
+export const handleResponse = (response: CacheAxiosResponse, logger: pino.Logger): CacheAxiosResponse => {
   logger.info(response.data);
   return response;
 };

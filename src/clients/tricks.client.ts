@@ -45,8 +45,12 @@ export class TricksClient extends BaseClient {
     return new Promise<Trick>((resolve, reject) => {
       this.api
         .get<Trick>(`${Endpoints.Tricks}/${name}`)
-        .then((response: AxiosResponse<Trick>) => resolve(response.data))
-        .catch((error: AxiosError<TrickError>) => reject(error));
+        .then((response: AxiosResponse<Trick>) => {
+          return resolve(response.data)
+        })
+        .catch((error: AxiosError<TrickError>) => {
+          reject(error)
+        });
     });
   }
 
