@@ -6,6 +6,7 @@ import { TrickCategory } from "./TrickCategory";
 export interface Trick {
   readonly id: string,
   readonly name: string,
+  readonly aliases: string,
   readonly categories: TrickCategory[],
   readonly prereqs: Array<string>,
   readonly nextTricks: Array<string>,
