@@ -2,10 +2,13 @@
 
 <div align="center">
 
+<img src='https://github.com/TrickingApi/trickingapi/blob/main/trickingAPILogo.png' width='128' height='128'>
 <h1>
-  Tricking-TS: 
+  <code>Tricking-TS</code>
 </h1>
-  
+
+
+[![npm](https://img.shields.io/npm/v/pokeapi-js-wrapper)](https://www.npmjs.com/package/@trickingapi/tricking-ts)
 ![issues](https://img.shields.io/github/issues/TrickingApi/tricking-ts)
 ![prs](https://img.shields.io/github/issues-pr/TrickingApi/tricking-ts)
 ![repo size](https://img.shields.io/github/repo-size/TrickingApi/tricking-ts)
@@ -15,12 +18,31 @@
 
 ## A Typescript Wrapper for [TrickingApi](https://github.com/TrickingApi/trickingapi)
 
-
-  
 <br/>
 
 </div>
 
-## Tricking-TS Documentation Coming Soon
-
 For project guidelines please see https://github.com/TrickingApi/trickingapi
+
+## Install
+npm
+```sh
+npm install @trickingapi/tricking-ts --save
+```
+
+or yarn
+```sh
+yarn add @trickingapi/tricking-ts
+```
+
+If you wish to include the raw tricks data directly in your project also import [tricks-core-data](https://github.com/TrickingApi/tricks-core-data)
+```sh
+npm install @trickingapi/tricks-core-data --save
+```
+or 
+```sh
+yarn add @trickingapi/tricks-core-data
+```
+
+## Usage
+[todo]
