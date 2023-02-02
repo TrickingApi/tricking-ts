@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://trickingapi.dev/api/'
+export const BASE_URL = 'https://api.trickingapi.dev/'
