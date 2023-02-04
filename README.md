@@ -45,4 +45,25 @@ yarn add @trickingapi/tricks-core-data
 ```
 
 ## Usage
-[todo]
+To start using tricking-ts:
+
+Import the package into your project: 
+```ts
+import { TricksClient } from '@trickingapi/tricking-ts';
+```
+
+Create an instance of the TrickingClient class, leave the constructor blank if you wish to use the public instance of TrickingAPI
+```ts
+const client = new TricksClient();
+```
+
+If you're running the api on your own machine or your own version of the server pass the baseURL as so:
+```ts
+const client = new TricksClient({
+  baseURL: 'localhost:8080'
+});
+```
+
+The client also accepts a ```logOptions``` parameter of type ```pino.LoggerOptions```, see https://getpino.io/#/docs/api?id=options for more.
+
+
