@@ -66,4 +66,15 @@ const client = new TricksClient({
 
 The client also accepts a ```logOptions``` parameter of type ```pino.LoggerOptions```, see https://getpino.io/#/docs/api?id=options for more.
 
+### Implemented APIS 
+
+Tricks endpoints:
+- /tricks (https://trickingapi.dev/api/tricks)
+- /tricks/names (https://trickingapi.dev/api/tricks/names)
+- /tricks/:name (https://trickingapi.dev/api/tricks/:name)
+
+Categories endpoints:
+ - /categories (https://trickingapi.dev/api/categories)
+ - /categories/tricks (https://trickingapi.dev/api/categories/tricks)
+ - /categories/:name (https://trickingapi.dev/api/categories/:name)
 
