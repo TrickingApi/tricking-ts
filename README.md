@@ -33,12 +33,15 @@ For project guidelines please see https://github.com/TrickingApi/trickingapi
 
 ## Install
 <a name='install'/>
+
 npm
+
 ```sh
 npm install @trickingapi/tricking-ts --save
 ```
 
 or yarn
+
 ```sh
 yarn add @trickingapi/tricking-ts
 ```
