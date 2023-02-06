@@ -24,7 +24,15 @@
 
 For project guidelines please see https://github.com/TrickingApi/trickingapi
 
+# Contents
+1. [Install](#install)
+2. [Usage](#usage)
+3. [Core Data](#core-data)
+4. [Types](#types)
+5. [Contributing](#contributing)
+
 ## Install
+<a name='install'/>
 npm
 ```sh
 npm install @trickingapi/tricking-ts --save
@@ -45,6 +53,7 @@ yarn add @trickingapi/tricks-core-data
 ```
 
 ## Usage
+<a name='usage'/>
 To start using tricking-ts:
 
 Import one of the clients into your project: 
@@ -342,4 +351,111 @@ Returns
     ...
 ]
 ```
+
+## Core-Data
+<a name='core-data'/>
+If you want to direct access to the underlying data used in [TrickingAPI](https://github.com/TrickingApi/trickingapi) you can directly add [tricks-core-data](https://github.com/TrickingApi/tricks-core-data) to your project. 
+```
+npm install --save-dev @trickingapi/tricks-core-data
+```
+
+or 
+
+```
+yarn add @trickingapi/tricks-core-data
+```
+
+### Usage
+```ts
+import * as Tricks from '@trickingapi/tricks-core-data/tricks';
+
+// Do something with each trick
+
+Object.entries(Tricks).map(([, trick]) => {
+  someProcessingFunction(trick);
+}
+```
+
+## Types
+<a name='types'/>
+Tricking-Ts exports the following data types
+
+### Trick
+```ts
+export interface Trick {
+    readonly id: string;
+    readonly name: string;
+    readonly aliases: string;
+    readonly categories: TrickCategory[];
+    readonly prereqs: Array<string>;
+    readonly nextTricks: Array<string>;
+    readonly description: string;
+}
+```
+
+### TrickCategory
+```ts
+export declare enum TrickCategory {
+    FLIP = "FLIP",
+    VERT_KICK = "VERT_KICK",
+    TWIST = "TWIST",
+    PSEUDO_DUB = "PSEUDO_DOUBLE_FLIP",
+    SING = "SINGLE",
+    DUB = "DOUBLE",
+    TRIP = "TRIPLE",
+    QUAD = "QUAD"
+}
+```
+
+### TrickError 
+Standard error object that [TrickingAPI](https://github.com/TrickingAPI/trickingapi)
+```ts
+export interface TrickError {
+    readonly data: string;
+    readonly message: string;
+    readonly success: boolean;
+}
+```
+
+## Contributing
+<a name='contributing'/>
+Interested in contributing? Great! 
+All contributions are welcome: bug fixes, data contributions, recommendations.
+
+Please see the [issues on GitHub](https://github.com/TrickingApi/tricking-ts/issues) before you submit a pull request or raise an issue, someone else might have beat you to it.
+
+To contribute to this repository:
+
+- [Fork the project to your own GitHub profile](https://help.github.com/articles/fork-a-repo/)
+
+- Download the forked project using git clone:
+
+    ```sh
+    git clone git@github.com:<YOUR_USERNAME>/tricking-ts.git
+    ```
+
+- Create a new branch with a descriptive name:
+
+    ```sh
+    git checkout -b my_new_branch
+    ```
+
+- New Feature/Bugfix?
+  - Write some code, fix something, and add a test to prove that it works. *No pull request will be accepted without existing tests passing, or without new tests if new features are added.
+
+
+Want to update the core-data? See [TrickingAPI](https://github.com/TrickingApi/trickingapi) contributing guidelines.
+- Create an issue under the "new trick" label, fill out the template, and assign it to yourself (if you intend to make the change yourself). Please use the [Corkscrew Request Issue](https://github.com/TrickingApi/trickingapi/issues/5 as an example! 
+
+- Commit your code and push it to GitHub
+
+- [Open a new pull request](https://help.github.com/articles/creating-a-pull-request/) and describe the changes you have made.
+
+- We'll accept your changes after review.
+
+Simple!
+
+## Questions
+If you have any questions, create an [issue](issue) (protip: do a quick search first to see if someone else didn't ask the same question before!).
+You can also reach the owner/developers at our [discord](https://discord.gg/T588bdSVKU)
 
