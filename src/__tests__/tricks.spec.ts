@@ -1,14 +1,14 @@
 import { Trick, TrickCategory, TrickError } from '../models';
 import { TricksClient } from '../clients';
 /**
- * This Test Suite directly calls the tricking api...tbh should mock it with hardcoded data..will create issue
+ * This Test Suite directly calls the tricking api.
+ * ToDo: should mock it with hardcoded data
  */
 describe ('Test Tricks Client', () => {
   let client: TricksClient;
 
   beforeAll(() => {
     client = new TricksClient();
-    
   });
 
   // Tricks

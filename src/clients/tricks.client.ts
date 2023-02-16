@@ -1,5 +1,5 @@
 import { AxiosError, AxiosResponse } from 'axios';
-import { BaseClient, IBaseClientOptions } from "./base";
+import { BaseClient, IBaseClientOptions } from './base';
 import { Endpoints } from '../constants';
 import {
   Trick,
