@@ -1,10 +1,7 @@
 import { AxiosError, AxiosResponse } from 'axios';
 import { BaseClient, IBaseClientOptions } from './base';
 import { Endpoints } from '../constants';
-import {
-  Transition,
-  TransitionId
-} from '../models';
+import { Transition, TransitionId } from '../models';
 
 /**
  * Transitions Client
@@ -17,7 +14,7 @@ import {
  */
 export class TransitionsClient extends BaseClient {
   /**
-   * @parm clientOptions options for the client
+   * @param clientOptions options for the client
    */
   constructor(clientOptions?: IBaseClientOptions) {
     super(clientOptions);
